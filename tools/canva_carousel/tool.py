@@ -14,8 +14,12 @@ def generate_carousel(slides):
     placeholders = {
         f"slide{i+1}_title": slide.get("title", ""),
         f"slide{i+1}_text": slide.get("text", "")
-        for i, slide in enumerate(slides):
-    }
+       for i, slide in enumerate(slides):
+    result.append({
+        "title": slide.title,
+        "content": slide.content
+    })
+
 
     if LOGO_URL:
         placeholders["logo"] = LOGO_URL
