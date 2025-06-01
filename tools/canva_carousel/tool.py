@@ -15,6 +15,7 @@ def generate_carousel(slides):
         f"slide{i+1}_title": slide.get("title", ""),
         f"slide{i+1}_text": slide.get("text", "")
        for i, slide in enumerate(slides):
+           }
     result.append({
         "title": slide.title,
         "content": slide.content
