@@ -11,19 +11,14 @@ def generate_carousel(slides):
         "Content-Type": "application/json"
     }
 
-    # On initialise un dictionnaire vide
     placeholders = {}
-
-    # Pour chaque slide, on ajoute 2 clés : titre + texte
     for i, slide in enumerate(slides):
         placeholders[f"slide{i+1}_title"] = slide.get("title", "")
         placeholders[f"slide{i+1}_text"] = slide.get("text", "")
 
-    # Si le logo est défini, on l’ajoute
     if LOGO_URL:
         placeholders["logo"] = LOGO_URL
 
-    # On construit la requête pour Canva
     payload = {
         "template_id": TEMPLATE_ID,
         "placeholders": placeholders
@@ -35,7 +30,6 @@ def generate_carousel(slides):
         json=payload
     )
 
-    # Gestion de la réponse
     if response.status_code == 200:
         return {"url": response.json().get("url")}
     else:
