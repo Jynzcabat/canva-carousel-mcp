@@ -1,0 +1,39 @@
+openapi: 3.0.1
+info:
+  title: Canva Carousel Generator
+  version: "1.0"
+paths:
+  /generate:
+    post:
+      summary: Génère un carrousel Canva storytelling
+      operationId: generateCarousel
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SlidesRequest"
+      responses:
+        "200":
+          description: Lien Canva généré
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  url:
+                    type: string
+components:
+  schemas:
+    SlidesRequest:
+      type: object
+      properties:
+        slides:
+          type: array
+          items:
+            type: object
+            properties:
+              title:
+                type: string
+              text:
+                type: string
