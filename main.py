@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+=======
+# main.py
+
+>>>>>>> 08f5aa0aa6231d7d2e25f17eadd71947fb9a6a96
 import os
 from fastapi import FastAPI, Request
 from fastapi.responses import RedirectResponse
